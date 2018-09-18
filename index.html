@@ -3,7 +3,6 @@
 <title>bbz</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="skeleton.css">
 <link rel="stylesheet" href="w3.css">
 <style>
 body,h1 {font-family: "Raleway", sans-serif}
@@ -41,34 +40,47 @@ body, html {height: 100%}
 			{
 				"name":"news",
 				"urls":[
-					{"name":"asdf","url":"a"},
-					{"name":"asdf","url":"a"},
-					{"name":"asdf","url":"a"},
+					{"name":"Hacker news","url":"https://news.ycombinator.com/"},
+					{"name":"Ars Technica","url":"https://arstechnica.com/"},
+					{"name":"Ars Technica IT","url":"https://arstechnica.com/information-technology/"},
+					{"name":"Verge","url":"https://www.theverge.com/"},
 				]
 			},
 			{
-				"name":"news",
+				"name":"social",
 				"urls":[
-					{"name":"asdf","url":"a"},
-					{"name":"asdf","url":"a"},
-					{"name":"asdf","url":"a"},
+					{"name":"Mastodon","url":"https://mastodon.social/web/getting-started"},
+					{"name":"FB","url":"https://facebook.com"},
+					{"name":"Messenger","url":"https://www.messenger.com/"},
+					{"name":"FuckMail","url":"https://www.gmail.com"},
+				]
+			},
+			{
+				"name":"development",
+				"urls":[
+					{"name":"ArcGISManager","url":"http://localhost:6080/arcgis/manager"},
+					{"name":"FB","url":"https://facebook.com"},
+					{"name":"Messenger","url":"https://www.messenger.com/"},
+					{"name":"FuckMail","url":"https://www.gmail.com"},
 				]
 			}			
 		];
 		doc += "<ul>";
 		for(var i=0; i<links.length; i++) {
 			var link = links[i];
+			doc += "<li>";
+			doc += link.name;			
+			doc+="</li>";
 			doc += "<ul>";
-			doc += link.name;
 			for(var j=0;j<link.urls.length;j++) {
 				var url = link.urls[j];
 				if(url){
-					doc += '<li> <a href="'+url.url+'">';
+					doc += '<li> <a target="_blank" rel="noopener noreferrer" href="'+url.url+'">';
 					doc += url.name;
 					doc += "</a></li>";
 				}
 			}
-			doc+="</ul>";
+			doc += "</ul>";
 		}
 		doc+="</ul>";
 		console.log(doc);
