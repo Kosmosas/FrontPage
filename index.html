@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>bbz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="skeleton.css">
+<link rel="stylesheet" href="w3.css">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('forest.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.center-div
+{
+     position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 500px;
+     height: 300px;
+}
+
+</style>
+<body>
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+	<div class="center-div">	
+		<H1>Links</H1>
+		<div id="links"></div>
+	</div>
+</div>
+
+<script>
+		var doc="",
+		links = [
+			{
+				"name":"news",
+				"urls":[
+					{"name":"asdf","url":"a"},
+					{"name":"asdf","url":"a"},
+					{"name":"asdf","url":"a"},
+				]
+			},
+			{
+				"name":"news",
+				"urls":[
+					{"name":"asdf","url":"a"},
+					{"name":"asdf","url":"a"},
+					{"name":"asdf","url":"a"},
+				]
+			}			
+		];
+		doc += "<ul>";
+		for(var i=0; i<links.length; i++) {
+			var link = links[i];
+			doc += "<ul>";
+			doc += link.name;
+			for(var j=0;j<link.urls.length;j++) {
+				var url = link.urls[j];
+				if(url){
+					doc += '<li> <a href="'+url.url+'">';
+					doc += url.name;
+					doc += "</a></li>";
+				}
+			}
+			doc+="</ul>";
+		}
+		doc+="</ul>";
+		console.log(doc);
+		window.links = links;
+		document.getElementById("links").innerHTML = doc;
+	</script>
+
+</body>
+</html>
